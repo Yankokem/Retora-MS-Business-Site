@@ -53,7 +53,7 @@
     <!-- Main Content -->
     <main class="flex-grow">
       {#if currentPath === '/'}
-        <Home />
+        <Home {navigate} />
       {:else if currentPath === '/features'}
         <Features />
       {:else if currentPath === '/comparison'}

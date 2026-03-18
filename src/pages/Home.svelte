@@ -1,5 +1,11 @@
 <script lang="ts">
   import { ArrowRight, Box, Smartphone, Server } from "lucide-svelte";
+
+  interface HomeProps {
+    navigate: (event: MouseEvent, path: string) => void;
+  }
+
+  let { navigate }: HomeProps = $props();
 </script>
 
 <!-- Hero Section -->
@@ -14,11 +20,11 @@
   </p>
 
   <div class="flex flex-col sm:flex-row gap-4">
-    <a href="/features" class="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-medium transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:shadow-[0_0_30px_rgba(220,38,38,0.6)]">
+    <a href="/features" onclick={(e) => navigate(e, '/features')} class="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-medium transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:shadow-[0_0_30px_rgba(220,38,38,0.6)]">
       Explore Features
       <ArrowRight size={20} />
     </a>
-    <a href="/comparison" class="inline-flex items-center justify-center gap-2 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800 text-neutral-900 dark:text-white px-8 py-4 rounded-xl font-medium transition-colors shadow-sm dark:shadow-none">
+    <a href="/comparison" onclick={(e) => navigate(e, '/comparison')} class="inline-flex items-center justify-center gap-2 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800 text-neutral-900 dark:text-white px-8 py-4 rounded-xl font-medium transition-colors shadow-sm dark:shadow-none">
       The Retora Advantage
     </a>
   </div>
